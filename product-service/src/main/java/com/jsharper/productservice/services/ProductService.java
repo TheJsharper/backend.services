@@ -1,6 +1,7 @@
 package com.jsharper.productservice.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Range;
 import org.springframework.stereotype.Service;
 
 import com.jsharper.productservice.dto.ProductDto;
@@ -19,6 +20,11 @@ public class ProductService {
 	public Flux<ProductDto> getAll() {
 
 		return this.productRepository.findAll().map(EntityDtoUtil::toDto);
+	}
+
+	public Flux<ProductDto> getByPriceRange(int min, int max) {
+
+		return this.productRepository.findByPriceBetween(Range.closed(min, max)).map(EntityDtoUtil::toDto);
 	}
 
 	public Mono<ProductDto> getBy(String id) {
