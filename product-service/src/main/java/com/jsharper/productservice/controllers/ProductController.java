@@ -56,7 +56,7 @@ public class ProductController {
 	}
 
 	@DeleteMapping("{id}")
-	public Mono<ResponseEntity<Void>> delete(@PathVariable String id) {
-		return this.service.delete(id).map(ResponseEntity::ok).defaultIfEmpty(ResponseEntity.notFound().build());
+	public Mono<Void> delete(@PathVariable String id) {
+		return this.service.delete(id);//.map(ResponseEntity::ok).defaultIfEmpty(ResponseEntity.notFound().build());
 	}
 }

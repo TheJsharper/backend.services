@@ -15,11 +15,11 @@ public class EntityDtoUtil {
 		return dto;
 	}
 
-	public static Product toEntity(ProductDto product) {
+	public static Product toEntity(ProductDto productDto) {
 
-		Product dto = new Product();
-		BeanUtils.copyProperties(dto, product);
+		Product product = new Product();
+		BeanUtils.copyProperties(productDto, product);
 
-		return dto;
+		return product;
 	}
 }
