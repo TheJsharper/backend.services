@@ -1,6 +1,7 @@
 package com.jsharper.userservice.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jsharper.userservice.dtos.UserDto;
 import com.jsharper.userservice.entities.User;
@@ -9,7 +10,7 @@ import com.jsharper.userservice.utils.EntityDtoUtil;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
+@Service
 public class UserService {
 
 	@Autowired
