@@ -19,7 +19,7 @@ public class EntityDtoUtilsTest {
 
 		user.setBalance(52);
 
-		UserDto result = EntityDtoUtil.toDo(user, UserDto.class);
+		UserDto result = EntityDtoUtil.toDto(user, UserDto.class);
 
 		Assertions.assertEquals(user.getBalance(), result.getBalance());
 
@@ -40,7 +40,7 @@ public class EntityDtoUtilsTest {
 
 		userDto.setBalance(52);
 
-		User result = EntityDtoUtil.toDo(userDto, User.class);
+		User result = EntityDtoUtil.toDto(userDto, User.class);
 
 		Assertions.assertEquals(userDto.getBalance(), result.getBalance());
 
