@@ -38,7 +38,7 @@ public class UserController {
 	}
 
 	@PostMapping
-	public Mono<UserDto> insert(Mono<UserDto> userDto) {
+	public Mono<UserDto> insert(@RequestBody Mono<UserDto> userDto) {
 		return this.service.insert(userDto);
 	}
 
@@ -51,7 +51,7 @@ public class UserController {
 
 	@DeleteMapping("{id}")
 	public Mono<Void> delete(@PathVariable("id") Integer id) {
-		return service.delete(id);
+		return service.delete(id).defaultIfEmpty(null);
 	}
 
 }

@@ -43,7 +43,7 @@ public class UserService {
 	}
 
 	public Mono<Void> delete(final Integer id) {
-		return this.delete(id);
+		return this.userRepository.deleteById(id);
 	}
 
 }

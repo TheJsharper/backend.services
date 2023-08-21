@@ -12,7 +12,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Table("users")
+@Table("USERS")
 public class User {
 	@Id
 	private Integer id;
