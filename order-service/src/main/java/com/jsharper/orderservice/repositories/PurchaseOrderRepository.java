@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.jsharper.orderservice.entities.PurchaseOrder;
 
-public interface PurchaseorderRepository extends JpaRepository<PurchaseOrder, Integer> {
+public interface PurchaseOrderRepository extends JpaRepository<PurchaseOrder, Integer> {
 
 }
