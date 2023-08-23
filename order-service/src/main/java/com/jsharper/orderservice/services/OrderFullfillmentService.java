@@ -1,5 +1,7 @@
 package com.jsharper.orderservice.services;
 
+import java.time.Duration;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ import com.jsharper.orderservice.utils.EntityDtoUtils;
 
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
+import reactor.util.retry.Retry;
 
 @Service
 public class OrderFullfillmentService {
@@ -34,7 +37,9 @@ public class OrderFullfillmentService {
 
 	private Mono<RequestContext> productRequestResponse(RequestContext rc) {
 		return this.productClient.getProductById(rc.getPurchaseOrderRequestDto().getProductId())
-				.doOnNext(rc::setProductDto).thenReturn(rc);
+				.doOnNext(rc::setProductDto)
+				.retryWhen(Retry.fixedDelay(5, Duration.ofSeconds(1)))
+				.thenReturn(rc);
 	}
 
 	private Mono<RequestContext> userRequestResponse(RequestContext rc) {
