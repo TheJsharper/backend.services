@@ -1,6 +1,6 @@
 package com.jsharper.orderservice.entities;
 
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
 import com.jsharper.orderservice.dtos.OrderStatus;
 
